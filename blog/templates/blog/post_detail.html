@@ -1,15 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
-</head>
-<body>
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.body }}</p>
     <small>{{ post.created_at }}</small>
     <br>
     <a href="{% url 'post_list' %}">Back to all posts</a>
-</body>
-</html>
+    <br>
+    <a href="{% url 'post_edit' pk=post.pk %}">Edit post</a>
+
+ {% endblock %}   
